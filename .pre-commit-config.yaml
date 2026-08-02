@@ -18,19 +18,19 @@ repos:
     hooks:
       - id: black
         name: black format
-        entry: poetry run black --color
+        entry: uv run black --color
         language: system
         types: [python]
 
       - id: ruff
         name: ruff lint
-        entry: poetry run ruff check --fix
+        entry: uv run ruff check --fix
         language: system
         types: [python]
 
       - id: mypy
         name: mypy static type check lint
-        entry: poetry run mypy
+        entry: uv run mypy
         language: system
         types: [python]
         verbose: true

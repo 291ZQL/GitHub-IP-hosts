@@ -6,20 +6,20 @@ MAKEFLAGS += --no-builtin-rules
 .DEFAULT_GOAL := run
 
 run:
-	poetry run python -m scripts.main
+	uv run python -m scripts.main
 
 install:
-	poetry install --extras dev
+	uv sync --frozen --extra dev
 
 lint:
-	poetry run ruff check --fix
-	poetry run mypy scripts tests
+	uv run ruff check --fix
+	uv run mypy scripts tests
 
 format:
-	poetry run black --color .
+	uv run black --color .
 
 pre-commit:
-	poetry run pre-commit run --verbose --all-files
+	uv run pre-commit run --verbose --all-files
 
 unit-tests:
-	poetry run pytest
+	uv run pytest
